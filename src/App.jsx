@@ -8,12 +8,15 @@ function App() {
 
   const [menuData, setMenuData] = useState(menu)
   // console.log(menuData)
+  const [categories, setCategories] = useState([])
+
+  
 
   return (
-    <main>
-      <h1>Our Menu</h1>
+    <main className='container'>
+      <h1 className='text-center mb-3'>Our Menu</h1>
       <section>
-        <Category />
+        <Category menuData={menuData} />
         <MenuItems menuData={menuData} />
       </section>
     </main>

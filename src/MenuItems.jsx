@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function MenuItems({menuData}) {
 
-    console.log(menuData)
+    // console.log(menuData)
 
     return (
         <section>
@@ -13,6 +13,11 @@ export default function MenuItems({menuData}) {
                     return (
                         <article key={id}>
                             <img src={img} />
+                            <div>
+                                <p>{title}</p>
+                                <span>{price}</span>
+                            </div>
+                            <p>{desc}</p>
                         </article>
                     )
                 })
