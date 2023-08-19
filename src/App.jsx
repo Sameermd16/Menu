@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import Category from './Category'
+import Categories from './Categories'
 import MenuItems from './MenuItems'
 import menu from './data'
 
@@ -8,7 +8,18 @@ function App() {
 
   const [menuData, setMenuData] = useState(menu)
   // console.log(menuData)
-  const [categories, setCategories] = useState([])
+  // console.log(menu)
+
+  function filteredItems(category) {
+    if(category === 'all') {
+      setMenuData(menu)
+      return 
+    }
+    const newItems = menu.filter((item) => {
+      return item.category === category 
+    })
+    setMenuData(newItems)
+  }
 
   
 
@@ -16,7 +27,7 @@ function App() {
     <main className='container'>
       <h1 className='text-center mb-3'>Our Menu</h1>
       <section>
-        <Category menuData={menuData} />
+        <Categories filteredItems={filteredItems} menuData={menuData} />
         <MenuItems menuData={menuData} />
       </section>
     </main>
